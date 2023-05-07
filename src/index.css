@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ANCHO DEL SCROLLBAR */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+#root{
+  background-image: url('../public/images/Leonardo_Diffusion_grecia_1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
