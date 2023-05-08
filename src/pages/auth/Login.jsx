@@ -54,7 +54,7 @@ const Login = () => {
         </div>
       </form>
       <div className='flex flex-col items-center gap-4'>
-        <Link to="/" className='hover:text-btnsecondary transition-colors'>¿Olvidaste tu contraseña?</Link>
+        <Link to="/auth/olvide-pass" className='hover:text-btnsecondary transition-colors'>¿Olvidaste tu contraseña?</Link>
         <span className='flex items-center gap-2'>
           ¿No tienes cuenta? <Link className='text-btnsecondary hover:text-gray-100 transition-colors' to="/auth/registro">Registrate</Link>
         </span>
