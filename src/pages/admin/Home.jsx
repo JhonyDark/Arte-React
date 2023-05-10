@@ -10,7 +10,7 @@ const Home = () => {
        <sidebar className='fixed left-0 top-0 w-52 h-full overflow-y-scroll border-r border-btnsecondary p-8 flex flex-col justify-between'>
           <div>
             {/* Logo */}
-            <h1 className='text-gray-300 uppercase text-2xl mb-10' >LOGO</h1>
+            <h1 className='text-gray-300 uppercase text-2xl mb-10' >TU LOGO</h1>
 
             {/* Menu superior */}
             <ul>
