@@ -2,8 +2,11 @@ import React from 'react'
 // LINKS
 import { Link } from 'react-router-dom';
 // ICONOS
-import { RiHome3Line, RiStore2Line, RiShoppingCart2Line, RiCustomerService2Fill, RiLoginBoxLine, RiCheckboxBlankCircleFill, RiMenuUnfoldFill, RiCloseLine, RiNotification3Line, RiSearchEyeLine } from "react-icons/ri";
+import { RiHome3Line, RiStore2Line, RiShoppingCart2Line, RiCustomerService2Fill, RiLoginBoxLine, RiCheckboxBlankCircleFill, RiMenuUnfoldFill, RiCloseLine, RiNotification3Line, RiSearchEyeLine, RiShareForwardFill } from "react-icons/ri";
 import { useState } from 'react';
+import Clock from './components/clock';
+
+
 
 const Home = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -58,7 +61,7 @@ const Home = () => {
                   <RiCustomerService2Fill /> Ayuda
                 </Link>
               </li>
-          </ul>
+            </ul>
           </div>
           {/* Btn menu movil */}
           <button onClick={toggleMenu} className='lg:hidden bg-btnprimary text-white fixed bottom-4 right-6 p-2 text-lg rounded-full z-50'>
@@ -67,10 +70,10 @@ const Home = () => {
        </sidebar>
 
        {/* Header */}
-       <header className='lg:pl-56 fixed w-full flex flex-col md:flex-row items-center justify-between gap-4 p-8' >
-          <nav className='flex items-center gap-4 order-1'>
+       <header className='lg:pl-56 fixed w-full flex flex-col md:flex-row items-center justify-between gap-4 p-8 bg-secondary-900' >
+          <nav className='flex items-center gap-4 order-1 lg:order-none'>
               <Link to="#" className='hover:bg-btnprimary text-white py-2 px-4 rounded-lg '>Fotografia</Link>
-              <Link to="#" className='hover:bg-btnprimary text-white py-2 px-4 rounded-lg '>Arte</Link>
+              {/* <Link to="#" className='hover:bg-btnprimary text-white py-2 px-4 rounded-lg '>Arte</Link> */}
               <Link to="#" className='hover:bg-btnprimary text-white py-2 px-4 rounded-lg '>Escultura</Link>
           </nav>
           <ul className='flex items-center gap-4'>
@@ -88,6 +91,22 @@ const Home = () => {
             </li>
           </ul> 
        </header>
+       {/* Contenido */}
+        <main className='lg:pl-56 p-8 pt-36'>
+          <div className='grid lg:grid-cols-6'>
+            <div className='col-span-6 relative'>
+              <img className='w-full h-[500px] object-cover' src="https://image.lexica.art/full_jpg/a1a38ea6-8215-4df5-88ff-d3d2c01eb991" alt="" />
+              <div className='absolute top-0 right-0'>
+                <Clock />
+              </div>
+              <div className='absolute left-4 bottom-10 bg-secondary-100 p-8 max-w-xl rounded-2xl opacity-70'>
+                <p>Greece</p>
+                <h2>Encuentra la armonía y la perfección de  la belleza atemporal del arte griego</h2>
+                <button>MAS <RiShareForwardFill /></button>
+              </div>
+            </div>
+          </div>
+        </main>
     </div>
   )
 }
