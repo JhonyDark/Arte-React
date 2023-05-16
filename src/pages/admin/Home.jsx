@@ -17,6 +17,7 @@ const Home = () => {
 
   return (
     <div className='bg-secondary-900 min-h-screen'>
+      {/* Sidebar */}
        <sidebar className={`bg-secondary-900 fixed  top-0 w-52 h-full overflow-y-scroll border-r border-btnsecondary p-8 flex flex-col  justify-between transition-all duration-700 lg:left-0 z-50 ${showMenu ? "left-0" : "-left-full"}`}>
           <div>
             {/* Logo */}
@@ -30,12 +31,12 @@ const Home = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/" className='flex items-center gap-4 hover:bg-btnprimary hover:text-white py-4 px-4 rounded-xl transition-colors duration-500'>
+                <Link to="#" className='flex items-center gap-4 hover:bg-btnprimary hover:text-white py-4 px-4 rounded-xl transition-colors duration-500'>
                 <RiStore2Line /> Tienda
                 </Link>
               </li>
               <li>
-                <Link to="/" className='flex items-center gap-4 hover:bg-btnprimary hover:text-white py-4 px-4 rounded-xl transition-colors duration-500'>
+                <Link to="#" className='flex items-center gap-4 hover:bg-btnprimary hover:text-white py-4 px-4 rounded-xl transition-colors duration-500'>
                 <RiShoppingCart2Line /> Carrito
                 </Link>
               </li>
@@ -92,17 +93,19 @@ const Home = () => {
           </ul> 
        </header>
        {/* Contenido */}
-        <main className='lg:pl-56 p-8 pt-36'>
+        <main className='lg:pl-56 p-8 pt-36 lg:pt-24'>
           <div className='grid lg:grid-cols-6'>
-            <div className='col-span-6 relative'>
-              <img className='w-full h-[500px] object-cover' src="https://image.lexica.art/full_jpg/a1a38ea6-8215-4df5-88ff-d3d2c01eb991" alt="" />
+            <div className='col-span-6 relative rounded-lg'>
+              <img className='w-full h-[500px] object-cover rounded-xl shadow-lg shadow-btnprimary' src="https://image.lexica.art/full_jpg/a1a38ea6-8215-4df5-88ff-d3d2c01eb991" alt="" />
               <div className='absolute top-0 right-0'>
                 <Clock />
               </div>
-              <div className='absolute left-4 bottom-10 bg-secondary-100 p-8 max-w-xl rounded-2xl opacity-70'>
-                <p>Greece</p>
-                <h2>Encuentra la armonía y la perfección de  la belleza atemporal del arte griego</h2>
-                <button>MAS <RiShareForwardFill /></button>
+              <div className='absolute left-4 bottom-10  p-8 max-w-xl rounded-2xl'>
+                <p className='text-btnprimary '>Greece</p>
+                <h2 className='text-gray-200 font-extrabold capitalize text-2xl	mb-4'>Encuentra la armonía y la perfección de  la belleza atemporal del arte griego</h2>
+                <button className='bg-btnprimary text-white py-4 px-6 rounded-xl flex items-center gap-1 text-lg hover:bg-btnsecondary group'>MAS
+                 <RiShareForwardFill className='group-hover:translate-x-2 transition-all'/>
+                </button>
               </div>
             </div>
           </div>
