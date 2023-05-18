@@ -10,6 +10,7 @@ import Recordarpass from "./pages/auth/Recordarpass";
 // PAGES ADMINS
 import Home from "./pages/admin/Home";
 import Chat from "./pages/admin/Chat";
+import Fotos from "./pages/admin/Fotografias";
 import Error404 from "./pages/Error404";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<LayoutAdmin />}>
           <Route index element={<Home />} />
           <Route path="chat" element={<Chat />} />
+          <Route path="fotos" element={<Fotos />} />
         </Route>
 
         <Route path="*" element={<Error404 />} />
