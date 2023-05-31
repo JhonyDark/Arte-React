@@ -12,6 +12,7 @@ import {
   RiCloseLine,
   RiNotification3Line,
   RiSearchEyeLine,
+  RiCloseFill,
 } from "react-icons/ri";
 import { useState } from "react";
 
@@ -20,9 +21,13 @@ import Cardsf from "./components/CardsF";
 
 const Fotos = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [showCarrito, setShowCarrito] = useState(false);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
+  };
+  const toggleCarrito = () => {
+    setShowCarrito(!showCarrito);
   };
 
   return (
@@ -54,14 +59,41 @@ const Fotos = () => {
               </li> */}
             <li>
               <Link
-                to="#"
+                onClick={toggleCarrito}
                 className="flex items-center gap-4 hover:bg-btnprimary hover:text-white py-4 px-4 rounded-xl transition-colors duration-500"
               >
-                <RiShoppingCart2Line /> Carrito
+                <RiShoppingCart2Line /> Carrito{" "}
+                <span className="text-[#636363]">0</span>
               </Link>
             </li>
           </ul>
         </div>
+
+        {/* modal carrito productlist */}
+        <div
+          className={`fixed top-56 left-4 w-[11.25rem] h-[400px] text-center transition-all duration-700 ${
+            showCarrito ? "scale-1" : "scale-0"
+          }`}
+        >
+          <div className="h-[300px] overflow-y-auto mb-2">
+            <div className="flex justify-between items-center px-1 text-btnprimary mb-2">
+              <span className="">1</span>
+              <p className="">Nik Grece</p>
+              <span className="">$65</span>
+              <RiCloseFill className="cursor-pointer " />
+            </div>
+            <div className="flex justify-between items-center px-1 text-btnprimary">
+              <span className="">1</span>
+              <p className="">Nik Grece</p>
+              <span className="">$65</span>
+              <RiCloseFill />
+            </div>
+          </div>
+          <button className="bg-btnprimary rounded-lg p-1 text-white font-bold">
+            Vaciar Carrito
+          </button>
+        </div>
+
         {/* Menu inferior */}
         <div>
           <ul>
@@ -73,6 +105,7 @@ const Fotos = () => {
               >
                 <RiLoginBoxLine /> Iniciar Sesión
               </Link>
+
               {/* este cuando este logeado */}
               <Link
                 to="/"

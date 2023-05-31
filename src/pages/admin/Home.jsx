@@ -60,7 +60,8 @@ const Home = () => {
                 to="#"
                 className="flex items-center gap-4 hover:bg-btnprimary hover:text-white py-4 px-4 rounded-xl transition-colors duration-500"
               >
-                <RiShoppingCart2Line /> Carrito
+                <RiShoppingCart2Line /> Carrito{" "}
+                <span className="text-[#636363]">0</span>
               </Link>
             </li>
           </ul>
