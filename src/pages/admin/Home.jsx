@@ -36,7 +36,7 @@ const Home = () => {
             <ul>
               <li>
                 {/* este sin logear */}
-                <Link to="/" className='flex items-center gap-4 hover:bg-btnprimary hover:text-white py-4 px-2 rounded-xl transition-colors duration-500'>
+                <Link to="/auth" className='flex items-center gap-4 hover:bg-btnprimary hover:text-white py-4 px-2 rounded-xl transition-colors duration-500'>
                   <RiLoginBoxLine /> Iniciar Sesión
                 </Link>
                 {/* este cuando este logeado */}
