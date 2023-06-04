@@ -100,7 +100,7 @@ const Home = () => {
             <li>
               {/* este sin logear */}
               <Link
-                to="/auth"
+                to="/login"
                 className="flex items-center gap-4 hover:bg-btnprimary hover:text-white py-4 px-0 2xl:px-2 rounded-xl transition-colors duration-500"
               >
                 <RiLoginBoxLine /> Iniciar Sesión

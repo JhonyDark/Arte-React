@@ -19,6 +19,8 @@ const AuthProvider = ({children}) => {
 
             setUser(response.data.user);
 
+            localStorage.setItem('token', response.data.token);
+
             console.log(response);
 
         } catch (error) {
@@ -35,11 +37,12 @@ const AuthProvider = ({children}) => {
         setUser(userData);
     };
 
-    const logout = () => {
+    const logout = async () => {
         // Aquí puedes realizar la lógica de cierre de sesión
         // Por ejemplo, eliminar el token de autenticación y limpiar los datos del usuario del estado
 
         setUser(null);
+        localStorage.removeItem('token');
     };
 
     return (
