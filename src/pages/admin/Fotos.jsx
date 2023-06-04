@@ -1,7 +1,4 @@
-import React from "react";
-// LINKS
 import { Link } from "react-router-dom";
-// ICONOS
 import {
   RiHome3Line,
   RiShoppingCart2Line,
@@ -32,11 +29,10 @@ const Fotos = () => {
 
   return (
     <div className="bg-secondary-900 min-h-screen">
-      {/* Sidebar */}
-      <sidebar
-        className={`bg-secondary-900 fixed  top-0 w-52 h-full overflow-y-scroll border-r border-btnsecondary p-8 flex flex-col  justify-between transition-all duration-700 lg:left-0 z-50 ${
-          showMenu ? "left-0" : "-left-full"
-        }`}
+      {/* Nav */}
+      <nav
+        className={`bg-secondary-900 fixed  top-0 w-52 h-full overflow-y-scroll border-r border-btnsecondary p-8 flex flex-col  justify-between transition-all duration-700 lg:left-0 z-50 ${showMenu ? "left-0" : "-left-full"
+          }`}
       >
         <div>
           {/* Logo */}
@@ -71,9 +67,8 @@ const Fotos = () => {
 
         {/* modal carrito productlist */}
         <div
-          className={`fixed top-56 left-4 w-[11.25rem] h-[400px] text-center transition-all duration-700 ${
-            showCarrito ? "scale-1" : "scale-0"
-          }`}
+          className={`fixed top-56 left-4 w-[11.25rem] h-[400px] text-center transition-all duration-700 ${showCarrito ? "scale-1" : "scale-0"
+            }`}
         >
           <div className="h-[300px] overflow-y-auto mb-2">
             <div className="flex justify-between items-center px-1 text-btnprimary mb-2">
@@ -100,7 +95,7 @@ const Fotos = () => {
             <li>
               {/* este sin logear */}
               <Link
-                to="/auth"
+                to="/login"
                 className="flex items-center gap-4 hover:bg-btnprimary hover:text-white py-4 px-0 2xl:px-2 rounded-xl transition-colors duration-500"
               >
                 <RiLoginBoxLine /> Iniciar Sesión
@@ -136,7 +131,7 @@ const Fotos = () => {
         >
           {showMenu ? <RiCloseLine /> : <RiMenuUnfoldFill />}
         </button>
-      </sidebar>
+      </nav>
 
       {/* Header */}
       <header className="lg:pl-56 fixed w-full flex flex-col md:flex-row items-center justify-between gap-4 p-8 bg-secondary-900 z-40">

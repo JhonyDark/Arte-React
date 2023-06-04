@@ -28,7 +28,7 @@ const Recordarpass = () => {
           </div>
         </form>
         <span className='flex items-center gap-2 justify-center'>
-          ¿Quieres intentar nuevamente? <Link className='text-btnsecondary hover:text-gray-100 transition-colors' to="/auth">Ingresar</Link>
+          ¿Quieres intentar nuevamente? <Link className='text-btnsecondary hover:text-gray-100 transition-colors' to="/login">Ingresar</Link>
         </span>
       </div>
     </div>

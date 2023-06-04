@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-
 import {
   RiHome3Line,
   RiShoppingCart2Line,
@@ -14,7 +12,7 @@ import {
   RiSearchEyeLine,
   RiShareForwardFill,
 } from "react-icons/ri";
-
+import { useState } from "react";
 import Clock from "./components/clock";
 import Card from "./components/personajes";
 
@@ -107,7 +105,7 @@ const Home = () => {
               </Link>
               {/* este cuando este logeado */}
               <Link
-                to="/"
+                to="/login"
                 className="hidden relative flex items-center gap-4 hover:bg-btnprimary hover:text-white py-4 px-4 rounded-xl transition-colors duration-500"
               >
                 <img

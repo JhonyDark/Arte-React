@@ -1,37 +1,16 @@
 import { useState } from 'react';
-//Icons
 import { RiMailLine, RiLockLine, RiEyeLine, RiEyeOffLine, RiUserLine } from "react-icons/ri";
-//Links
-import { Link, useNavigate } from 'react-router-dom';
-import Validation from './Error404Register';
-import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 export function Register() {
 
-  const [values, setValues] = useState({
-    name: '',
-    email: '',
-    password: ''
-  })
 
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({})
-  const handleInput = (event) => {
-    setValues(prev => ({ ...prev, [event.target.name]: event.target.value }))
 
-  }
-  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
-    setErrors(Validation(values));
-    if (errors.name === "" && errors.email === "" && errors.password === "") {
-      axios.post('http://localhost:8081/auth/registro', values)
-        .then(res => {
-          navigate('/auth');
-        })
-        .catch(err => console.log(err));
-    }
-
+    //
   }
 
 
@@ -52,7 +31,7 @@ export function Register() {
           <div className="relative mb-4">
             <RiUserLine className="absolute top-1/2 -translate-y-1/2 left-2 text-btnsecondary" />
             <input
-              type="text" name='name' onChange={handleInput}
+              type="text" name='name' onChange={() => {}}
               className="py-3 pl-8 pr-4 bg-secondary-900 w-full outline-none rounded-lg focus:border focus:border-btnsecondary"
               placeholder="Nombre completo"
             />{errors.name && <span> {errors.name} </span>}
@@ -60,7 +39,7 @@ export function Register() {
           <div className="relative mb-4">
             <RiMailLine className="absolute top-1/2 -translate-y-1/2 left-2 text-btnsecondary" />
             <input
-              type="email" name='email' onChange={handleInput}
+              type="email" name='email' onChange={() => {}}
               className="py-3 pl-8 pr-4 bg-secondary-900 w-full outline-none rounded-lg focus:border focus:border-btnsecondary"
               placeholder="Correo electrónico"
             />{errors.email && <span> {errors.email} </span>}
@@ -68,7 +47,7 @@ export function Register() {
           <div className="relative mb-4">
             <RiLockLine className="absolute top-1/2 -translate-y-1/2 left-2 text-btnsecondary" />
             <input
-              type="password" name='password' onChange={handleInput}
+              type="password" name='password' onChange={() => {}}
               className="py-3 px-8 bg-secondary-900 w-full outline-none rounded-lg focus:border focus:border-btnsecondary"
               placeholder="Contraseña"
             />{errors.password && <span> {errors.password} </span>}
@@ -110,7 +89,7 @@ export function Register() {
           </div>
         </form>
         <span className='flex items-center gap-2 justify-center'>
-          ¿Ya tienes cuenta? <Link className='text-btnsecondary hover:text-gray-100 transition-colors' to="/auth">Ingresa</Link>
+          ¿Ya tienes cuenta? <Link className='text-btnsecondary hover:text-gray-100 transition-colors' to="/login">Ingresa</Link>
         </span>
       </div>
     </div>
