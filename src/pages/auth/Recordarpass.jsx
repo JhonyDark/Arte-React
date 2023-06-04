@@ -1,16 +1,16 @@
-import React from 'react'
 //Icons
 import { RiMailLine } from "react-icons/ri";
 //Links
 import { Link } from 'react-router-dom';
 
 const Recordarpass = () => {
-    
 
-    return (
+
+  return (
+    <div className='min-h-screen flex items-center justify-center p-4 pb-20 sm:pb-0'>
       <div className="bg-secondary-100 p-8 rounded-xl shadow-2xl w-auto lg:w-[450px] opacity-80">
         <h1 className="text-3xl uppercase font-bold tracking-[5px] text-white mb-8 text-center">
-          Recuperar <span className='text-btnsecondary border-b py-1'>Contraseña</span> 
+          Recuperar <span className='text-btnsecondary border-b py-1'>Contraseña</span>
         </h1>
         <form className='mb-8'>
           <div className="relative mb-8">
@@ -27,11 +27,12 @@ const Recordarpass = () => {
             </button>
           </div>
         </form>
-          <span className='flex items-center gap-2 justify-center'>
-            ¿Quieres intentar nuevamente? <Link className='text-btnsecondary hover:text-gray-100 transition-colors' to="/auth">Ingresar</Link>
-          </span>
+        <span className='flex items-center gap-2 justify-center'>
+          ¿Quieres intentar nuevamente? <Link className='text-btnsecondary hover:text-gray-100 transition-colors' to="/login">Ingresar</Link>
+        </span>
       </div>
-    );
+    </div>
+  );
 }
 
 export default Recordarpass

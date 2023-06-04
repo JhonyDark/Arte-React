@@ -8,7 +8,7 @@
 }
 
 #root{
-  background-image: url('../public/images/Leonardo_Diffusion_grecia_1.jpg');
+  background-image: url('./assets/Leonardo_Diffusion_grecia_1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
