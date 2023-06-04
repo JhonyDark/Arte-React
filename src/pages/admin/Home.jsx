@@ -192,10 +192,10 @@ const Home = () => {
               <Clock />
             </div>
             <div className="absolute left-4 bottom-10  p-8 max-w-xl rounded-2xl">
-              <p className="text-btnprimary ">Greece</p>
+              <p className="text-btnprimary ">Art&Craft AI</p>
               <h2 className="text-gray-200 font-extrabold capitalize text-2xl	mb-4">
                 Encuentra la armonía y la perfección de la belleza atemporal del
-                arte griego
+                arte griego con la AI.
               </h2>
               <button className="bg-btnprimary text-white py-4 px-6 rounded-xl flex items-center gap-1 text-lg hover:bg-btnsecondary group">
                 MAS
