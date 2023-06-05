@@ -1,14 +1,12 @@
 import { useContext, useState } from 'react'
 import { RiMailLine, RiLockLine, RiEyeLine, RiEyeOffLine } from "react-icons/ri";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 
 
 const Login = () => {
 
   const { errors, login } = useContext(AuthContext);
-
-  const navigate = useNavigate();
 
   const [email, setEmail] = useState('jhon@mail.com');
   const [password, setPassword] = useState('secret');
@@ -18,8 +16,6 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     login({ email, password });
-
-    navigate('/');
   };
 
 
@@ -84,7 +80,7 @@ const Login = () => {
         <div className='flex flex-col items-center gap-4'>
           <Link to="/" className='hover:text-btnsecondary transition-colors'>¿Olvidaste tu contraseña?</Link>
           <span className='flex items-center gap-2'>
-            ¿No tienes cuenta? <Link className='text-btnsecondary hover:text-gray-100 transition-colors' to="/auth/registro">Registrate</Link>
+            ¿No tienes cuenta? <Link className='text-btnsecondary hover:text-gray-100 transition-colors' to="/registro">Registrate</Link>
           </span>
         </div>
       </div>

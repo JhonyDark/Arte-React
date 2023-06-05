@@ -1,16 +1,29 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { RiMailLine, RiLockLine, RiEyeLine, RiEyeOffLine, RiUserLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
 export function Register() {
 
+  const [name, setName] = useState('Alberto gallorico');
+  const [email, setEmail] = useState('jhondoe@mail.com');
+  const [password, setPassword] = useState('secret');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('secret');
+
+  const { register, errors } = useContext(AuthContext);
 
   const [showPassword, setShowPassword] = useState(false);
-  const [errors, setErrors] = useState({})
+  const [showPasswordConfirmation, setShowPasswordConfirmation] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    //
+
+    register({
+      name,
+      email,
+      password,
+      passwordConfirmation
+    })
   }
 
 
@@ -31,7 +44,9 @@ export function Register() {
           <div className="relative mb-4">
             <RiUserLine className="absolute top-1/2 -translate-y-1/2 left-2 text-btnsecondary" />
             <input
-              type="text" name='name' onChange={() => {}}
+              type="text" name='name'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="py-3 pl-8 pr-4 bg-secondary-900 w-full outline-none rounded-lg focus:border focus:border-btnsecondary"
               placeholder="Nombre completo"
             />{errors.name && <span> {errors.name} </span>}
@@ -39,7 +54,9 @@ export function Register() {
           <div className="relative mb-4">
             <RiMailLine className="absolute top-1/2 -translate-y-1/2 left-2 text-btnsecondary" />
             <input
-              type="email" name='email' onChange={() => {}}
+              type="email" name='email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="py-3 pl-8 pr-4 bg-secondary-900 w-full outline-none rounded-lg focus:border focus:border-btnsecondary"
               placeholder="Correo electrónico"
             />{errors.email && <span> {errors.email} </span>}
@@ -47,28 +64,12 @@ export function Register() {
           <div className="relative mb-4">
             <RiLockLine className="absolute top-1/2 -translate-y-1/2 left-2 text-btnsecondary" />
             <input
-              type="password" name='password' onChange={() => {}}
+              type={showPassword ? "text" : "password"}
+              name='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="py-3 px-8 bg-secondary-900 w-full outline-none rounded-lg focus:border focus:border-btnsecondary"
               placeholder="Contraseña"
-            />{errors.password && <span> {errors.password} </span>}
-            {showPassword ? (
-              <RiEyeOffLine
-
-                className="absolute top-1/2 -translate-y-1/2 right-2 hover:cursor-pointer text-btnsecondary"
-              />
-            ) : (
-              <RiEyeLine
-
-                className="absolute top-1/2 -translate-y-1/2 right-2 hover:cursor-pointer text-btnsecondary"
-              />
-            )}
-          </div>
-          <div className="relative mb-4">
-            <RiLockLine className="absolute top-1/2 -translate-y-1/2 left-2 text-btnsecondary" />
-            <input
-              type={showPassword ? "text" : "password"}
-              className="py-3 px-8 bg-secondary-900 w-full outline-none rounded-lg focus:border focus:border-btnsecondary"
-              placeholder="confirmar contraseña"
             />{errors.password && <span> {errors.password} </span>}
             {showPassword ? (
               <RiEyeOffLine
@@ -77,7 +78,28 @@ export function Register() {
               />
             ) : (
               <RiEyeLine
-
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute top-1/2 -translate-y-1/2 right-2 hover:cursor-pointer text-btnsecondary"
+              />
+            )}
+          </div>
+          <div className="relative mb-4">
+            <RiLockLine className="absolute top-1/2 -translate-y-1/2 left-2 text-btnsecondary" />
+            <input
+              type={showPasswordConfirmation ? "text" : "password"}
+              className="py-3 px-8 bg-secondary-900 w-full outline-none rounded-lg focus:border focus:border-btnsecondary"
+              value={passwordConfirmation}
+              onChange={(e) => setPasswordConfirmation(e.target.value)}
+              placeholder="confirmar contraseña"
+            />
+            {showPasswordConfirmation ? (
+              <RiEyeOffLine
+                onClick={() => setShowPasswordConfirmation(!showPasswordConfirmation)}
+                className="absolute top-1/2 -translate-y-1/2 right-2 hover:cursor-pointer text-btnsecondary"
+              />
+            ) : (
+              <RiEyeLine
+                onClick={() => setShowPasswordConfirmation(!showPasswordConfirmation)}
                 className="absolute top-1/2 -translate-y-1/2 right-2 hover:cursor-pointer text-btnsecondary"
               />
             )}
