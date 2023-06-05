@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-import React, { useEffect } from "react";
-
-import gsap from "gsap";
-=======
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
->>>>>>> 92a9b45d2240b9c7d551c4c50c636f6b24245b99
 
 function Clock() {
 
@@ -36,19 +30,11 @@ function Clock() {
   }, []);
 
   return (
-<<<<<<< HEAD
-    <div class="clock">
-      <div class="hand hour-hand"></div>
-      <div class="hand minute-hand"></div>
-      <div class="hand second-hand"></div>
-      <div class="center-dot"></div>
-=======
     <div className="clock">
       <div className="hand hour-hand"></div>
       <div className="hand minute-hand"></div>
       <div className="hand second-hand"></div>
       <div className="center-dot"></div>
->>>>>>> 92a9b45d2240b9c7d551c4c50c636f6b24245b99
     </div>
   );
 }
