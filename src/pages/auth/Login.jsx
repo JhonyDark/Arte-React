@@ -8,7 +8,7 @@ const Login = () => {
 
   const { errors, login } = useContext(AuthContext);
 
-  const [email, setEmail] = useState('jhon@mail.com');
+  const [email, setEmail] = useState('admin@example.com');
   const [password, setPassword] = useState('secret');
 
   const [showPassword, setShowPassword] = useState(false);
