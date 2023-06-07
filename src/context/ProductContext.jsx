@@ -30,6 +30,21 @@ const ProductProvider = ({ children }) => {
     }
 
     const addShoppingCardProduct = (product) => {
+
+        const existProduct = productsCart.find(currentProduct => currentProduct.id === product.id);
+
+        if (existProduct) {
+
+            const currentProducts = productsCart.map(item =>
+                item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item);
+
+            setProductsCart([...currentProducts]);
+            localStorage.setItem('products', JSON.stringify(currentProducts));
+
+            return;
+
+        }
+
         setProductsCart([...productsCart, product]);
         localStorage.setItem('products', JSON.stringify([...productsCart, product]));
     }
