@@ -1,33 +1,14 @@
 
-import { useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import Card from "./components/Card";
-import axios from "axios";
+import { ProductContext } from "../../context/ProductContext";
 
 const Fotos = () => {
 
-  const accessToken = localStorage.getItem("token");
-
-  const [products, setProducts] = useState([]);
-
-  const getProducts = async () => {
-
-    try {
-      const response = await axios.get('http://back-art.test/api/products', {
-        headers: {
-          'Authorization': 'Bearer ' + accessToken
-        }
-      });
-
-      setProducts(response.data.data);
-    } catch (error) {
-      console.log(error);
-    }
-
-  }
+  const { products, addShoppingCardProduct, getProducts } = useContext(ProductContext);
 
   useEffect(() => {
     getProducts();
-
   }, []);
 
 
@@ -38,12 +19,11 @@ const Fotos = () => {
         <div className="px-[10px] col-span-5">
           <div className="flex flex-wrap -mx-4">
             {
-              products.map((product) => (
+              products.map((item) => (
                 <Card
-                  key={product.id}
-                  imageUrl={product.image}
-                  price={product.price}
-                  title={product.name}
+                  key={item.id}
+                  product={item}
+                  addShoppingCard={addShoppingCardProduct}
                 />
               ))
             }

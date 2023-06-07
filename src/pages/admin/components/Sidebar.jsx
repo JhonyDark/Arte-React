@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
     RiCheckboxBlankCircleFill,
-    RiCloseFill,
     RiCloseLine,
     RiCustomerService2Fill,
     RiHome3Line,
@@ -10,10 +9,13 @@ import {
     RiShoppingCart2Line,
 } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { ShoppingCart } from "./ShoppingCart";
+import { ProductContext } from "../../../context/ProductContext";
 
 export const Sidebar = () => {
     const [showMenu, setShowMenu] = useState(false);
     const [showCarrito, setShowCarrito] = useState(false);
+
 
     const toggleMenu = () => {
         setShowMenu(!showMenu);
@@ -21,6 +23,8 @@ export const Sidebar = () => {
     const toggleCarrito = () => {
         setShowCarrito(!showCarrito);
     };
+
+    const { productsCart } = useContext(ProductContext);
 
     return (
         <nav
@@ -52,38 +56,14 @@ export const Sidebar = () => {
                             className="flex items-center gap-4 hover:bg-btnprimary hover:text-white py-4 px-4 rounded-xl transition-colors duration-500"
                         >
                             <RiShoppingCart2Line /> Carrito{" "}
-                            <span className="text-[#636363]">0</span>
+                            <span className="text-[#636363]">{productsCart.length}</span>
                         </Link>
                     </li>
                 </ul>
             </div>
 
             {/* modal carrito productlist */}
-            <div
-                className={`fixed top-56 left-4 w-[11.25rem] h-[400px] text-center transition-all duration-700 ${showCarrito ? "scale-1" : "scale-0"
-                    }`}
-            >
-                <div className="h-[300px] overflow-y-auto mb-2">
-                    <div className="flex justify-between items-center px-1 text-btnprimary mb-2">
-                        <span className="">1</span>
-                        <p className="">Nik Grece</p>
-                        <span className="">$65</span>
-                        <RiCloseFill className="cursor-pointer " />
-                    </div>
-                    <div className="flex justify-between items-center px-1 text-btnprimary">
-                        <span className="">1</span>
-                        <p className="">Nik Grece</p>
-                        <span className="">$65</span>
-                        <RiCloseFill />
-                    </div>
-                </div>
-                <button className="bg-btnprimary rounded-lg p-1 text-white font-bold mb-4">
-                    Vaciar Carrito
-                </button>
-                <button className="bg-btnprimary rounded-lg p-1 text-white font-bold">
-                    Comprar
-                </button>
-            </div>
+            <ShoppingCart showCarrito={showCarrito} />
 
             {/* Menu inferior */}
             <div>
