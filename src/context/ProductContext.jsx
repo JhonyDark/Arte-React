@@ -6,7 +6,6 @@ const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
 
-
     const [products, setProducts] = useState([]);
     const [productsCart, setProductsCart] = useState([]);
     const [errors, setErrors] = useState({});
