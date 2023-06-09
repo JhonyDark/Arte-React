@@ -36,7 +36,7 @@ const ProductProvider = ({ children }) => {
         if (existProduct) {
 
             const currentProducts = productsCart.map(item =>
-                item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item);
+                item.id === product.id ? { ...item, quantityProduct: item.quantityProduct + 1 } : item);
 
             setProductsCart([...currentProducts]);
             localStorage.setItem('products', JSON.stringify(currentProducts));
@@ -45,8 +45,8 @@ const ProductProvider = ({ children }) => {
 
         }
 
-        setProductsCart([...productsCart, product]);
-        localStorage.setItem('products', JSON.stringify([...productsCart, product]));
+        setProductsCart([...productsCart, { ...product, quantityProduct: 1 }]);
+        localStorage.setItem('products', JSON.stringify([...productsCart, { ...product, quantityProduct: 1 }]));
     }
 
 
